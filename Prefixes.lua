@@ -1,5 +1,5 @@
 script_name("Prefixes")
-script_version("1.1")
+script_version("1.2")
 require 'lib.moonloader'
 
 local sampev = require 'lib.samp.events'
@@ -11,7 +11,7 @@ local key = require 'vkeys'
 encoding.default = 'CP1251'
 u8 = encoding.UTF8
 
-local tag = "{00BFFF}[Меню префиксов]{FFFFFF}"
+local tag = "{00BFFF}[ГЊГҐГ­Гѕ ГЇГ°ГҐГґГЁГЄГ±Г®Гў]{FFFFFF}"
 
 local prefixm = imgui.ImBool(false)
 
@@ -36,8 +36,8 @@ while not  isSampAvailable() do wait(100) end
 	_, id = sampGetPlayerIdByCharHandle(PLAYER_PED)
 	nick = sampGetPlayerNickname(id)
 
-sampAddChatMessage(tag .. " Скрипт успешно загружен{00BFFF}! ")
-sampAddChatMessage(tag .. " {FFFFFF}Активация: {00BFFF}/prefixm ")
+sampAddChatMessage(tag .. " Г‘ГЄГ°ГЁГЇГІ ГіГ±ГЇГҐГёГ­Г® Г§Г ГЈГ°ГіГ¦ГҐГ­{00BFFF}! ")
+sampAddChatMessage(tag .. " {FFFFFF}ГЂГЄГІГЁГўГ Г¶ГЁГї: {00BFFF}/prefixm ")
 
 sampRegisterChatCommand("prefixm", cmd_prefixm)
 sampRegisterChatCommand("prefixhelper", cmd_prefixhelper)
@@ -66,113 +66,113 @@ function imgui.OnDrawFrame()
     imgui.SetNextWindowSize(imgui.ImVec2(600, 350), imgui.Cond.FirstUseEver)
 	imgui.SetNextWindowPos(imgui.ImVec2(500, 200), imgui.Cond.FirstUseEver)
 	imgui.GetStyle().WindowTitleAlign = imgui.ImVec2(0.5, 0.5)
-    imgui.Begin(u8'Префиксы | 1.1', prefixm, imgui.WindowFlags.NoResize)
+    imgui.Begin(u8'ГЏГ°ГҐГґГЁГЄГ±Г» | 1.1', prefixm, imgui.WindowFlags.NoResize)
 	
-imgui.CenterText(u8"Чтобы избежать бага, при записывании префикса закройте все остальные окна!")
+imgui.CenterText(u8"Г—ГІГ®ГЎГ» ГЁГ§ГЎГҐГ¦Г ГІГј ГЎГ ГЈГ , ГЇГ°ГЁ Г§Г ГЇГЁГ±Г»ГўГ Г­ГЁГЁ ГЇГ°ГҐГґГЁГЄГ±Г  Г§Г ГЄГ°Г®Г©ГІГҐ ГўГ±ГҐ Г®Г±ГІГ Г«ГјГ­Г»ГҐ Г®ГЄГ­Г !")
 
-if imgui.CollapsingHeader(u8"Хелпер") then
-			imgui.InputText(u8"Введите цвет", text_buffer)
+if imgui.CollapsingHeader(u8"Г•ГҐГ«ГЇГҐГ°") then
+			imgui.InputText(u8"Г‚ГўГҐГ¤ГЁГІГҐ Г¶ГўГҐГІ", text_buffer)
 			
-				if imgui.Button(u8"Сохранить") then
+				if imgui.Button(u8"Г‘Г®ГµГ°Г Г­ГЁГІГј") then
 								mainIni.config.prefixhelper = text_buffer.v
 					if inicfg.save(mainIni, directIni) then
 					
-						sampAddChatMessage("Сохранение префикса {" .. text_buffer.v .."}'Хелпер' {00BFFF}успешно!", -1)
+						sampAddChatMessage("Г‘Г®ГµГ°Г Г­ГҐГ­ГЁГҐ ГЇГ°ГҐГґГЁГЄГ±Г  {" .. text_buffer.v .."}'Г•ГҐГ«ГЇГҐГ°' {00BFFF}ГіГ±ГЇГҐГёГ­Г®!", -1)
 					end
 				end 
 			end
 
-if imgui.CollapsingHeader(u8"Мл.Администратор") then
-			imgui.InputText(u8"Введите цвет", text_buffer2)
-				if imgui.Button(u8"Сохранить") then
+if imgui.CollapsingHeader(u8"ГЊГ«.ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°") then
+			imgui.InputText(u8"Г‚ГўГҐГ¤ГЁГІГҐ Г¶ГўГҐГІ", text_buffer2)
+				if imgui.Button(u8"Г‘Г®ГµГ°Г Г­ГЁГІГј") then
 								mainIni.config.prefixmladm = text_buffer2.v
 					if inicfg.save(mainIni, directIni) then
-						sampAddChatMessage("Сохранение префикса {" .. text_buffer2.v .."}'Мл.Администратор' {00BFFF}успешно!", -1)
+						sampAddChatMessage("Г‘Г®ГµГ°Г Г­ГҐГ­ГЁГҐ ГЇГ°ГҐГґГЁГЄГ±Г  {" .. text_buffer2.v .."}'ГЊГ«.ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°' {00BFFF}ГіГ±ГЇГҐГёГ­Г®!", -1)
 					end
 				end 
 				end
 
-if imgui.CollapsingHeader(u8"Администратор") then
-			imgui.InputText(u8"Введите цвет", text_buffer3)
-				if imgui.Button(u8"Сохранить") then
+if imgui.CollapsingHeader(u8"ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°") then
+			imgui.InputText(u8"Г‚ГўГҐГ¤ГЁГІГҐ Г¶ГўГҐГІ", text_buffer3)
+				if imgui.Button(u8"Г‘Г®ГµГ°Г Г­ГЁГІГј") then
 								mainIni.config.prefixadm = text_buffer3.v
 					if inicfg.save(mainIni, directIni) then
-						sampAddChatMessage("Сохранение префикса {" .. text_buffer3.v .."}'Администратор' {00BFFF}успешно!", -1)
+						sampAddChatMessage("Г‘Г®ГµГ°Г Г­ГҐГ­ГЁГҐ ГЇГ°ГҐГґГЁГЄГ±Г  {" .. text_buffer3.v .."}'ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°' {00BFFF}ГіГ±ГЇГҐГёГ­Г®!", -1)
 					end
 				end 
 				end
 
-if imgui.CollapsingHeader(u8"Старший-Администратор") then
-			imgui.InputText(u8"Введите цвет", text_buffer4)
-				if imgui.Button(u8"Сохранить") then
+if imgui.CollapsingHeader(u8"Г‘ГІГ Г°ГёГЁГ©-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°") then
+			imgui.InputText(u8"Г‚ГўГҐГ¤ГЁГІГҐ Г¶ГўГҐГІ", text_buffer4)
+				if imgui.Button(u8"Г‘Г®ГµГ°Г Г­ГЁГІГј") then
 								mainIni.config.prefixstadm = text_buffer4.v
 					if inicfg.save(mainIni, directIni) then
-						sampAddChatMessage("Сохранение префикса {" .. text_buffer4.v .."}'Старший-Администратор' {00BFFF}успешно!", -1)
+						sampAddChatMessage("Г‘Г®ГµГ°Г Г­ГҐГ­ГЁГҐ ГЇГ°ГҐГґГЁГЄГ±Г  {" .. text_buffer4.v .."}'Г‘ГІГ Г°ГёГЁГ©-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°' {00BFFF}ГіГ±ГЇГҐГёГ­Г®!", -1)
 					end
 				end 
 				end
 				
-if imgui.CollapsingHeader(u8"Помощник.Гл-Администратора") then
-			imgui.InputText(u8"Введите цвет", text_buffer5)
-				if imgui.Button(u8"Сохранить") then
+if imgui.CollapsingHeader(u8"ГЏГ®Г¬Г®Г№Г­ГЁГЄ.ГѓГ«-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г ") then
+			imgui.InputText(u8"Г‚ГўГҐГ¤ГЁГІГҐ Г¶ГўГҐГІ", text_buffer5)
+				if imgui.Button(u8"Г‘Г®ГµГ°Г Г­ГЁГІГј") then
 								mainIni.config.prefixpga = text_buffer5.v
 					if inicfg.save(mainIni, directIni) then
-						sampAddChatMessage("Сохранение префикса {" .. text_buffer5.v .."}'Помощник.Гл-Администратора' {00BFFF}успешно!", -1)
+						sampAddChatMessage("Г‘Г®ГµГ°Г Г­ГҐГ­ГЁГҐ ГЇГ°ГҐГґГЁГЄГ±Г  {" .. text_buffer5.v .."}'ГЏГ®Г¬Г®Г№Г­ГЁГЄ.ГѓГ«-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г ' {00BFFF}ГіГ±ГЇГҐГёГ­Г®!", -1)
 					end
 				end 
 				end
 				
-if imgui.CollapsingHeader(u8"Заместитель.Гл-Администратора") then
-			imgui.InputText(u8"Введите цвет", text_buffer6)
-				if imgui.Button(u8"Сохранить") then
+if imgui.CollapsingHeader(u8"Г‡Г Г¬ГҐГ±ГІГЁГІГҐГ«Гј.ГѓГ«-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г ") then
+			imgui.InputText(u8"Г‚ГўГҐГ¤ГЁГІГҐ Г¶ГўГҐГІ", text_buffer6)
+				if imgui.Button(u8"Г‘Г®ГµГ°Г Г­ГЁГІГј") then
 								mainIni.config.prefixzga = text_buffer6.v
 					if inicfg.save(mainIni, directIni) then
-						sampAddChatMessage("Сохранение префикса {" .. text_buffer6.v .."}'Заместитель.Гл-Администратора' {00BFFF}успешно!", -1)
+						sampAddChatMessage("Г‘Г®ГµГ°Г Г­ГҐГ­ГЁГҐ ГЇГ°ГҐГґГЁГЄГ±Г  {" .. text_buffer6.v .."}'Г‡Г Г¬ГҐГ±ГІГЁГІГҐГ«Гј.ГѓГ«-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г ' {00BFFF}ГіГ±ГЇГҐГёГ­Г®!", -1)
 					end
 				end 
 				end
 				
-if imgui.CollapsingHeader(u8"Главный-Администратор") then
-			imgui.InputText(u8"Введите цвет", text_buffer7)
-				if imgui.Button(u8"Сохранить") then
+if imgui.CollapsingHeader(u8"ГѓГ«Г ГўГ­Г»Г©-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°") then
+			imgui.InputText(u8"Г‚ГўГҐГ¤ГЁГІГҐ Г¶ГўГҐГІ", text_buffer7)
+				if imgui.Button(u8"Г‘Г®ГµГ°Г Г­ГЁГІГј") then
 								mainIni.config.prefixga = text_buffer7.v
 					if inicfg.save(mainIni, directIni) then
-						sampAddChatMessage("Сохранение префикса {" .. text_buffer7.v .."}'Главный-Администратор' {00BFFF}успешно!", -1)
+						sampAddChatMessage("Г‘Г®ГµГ°Г Г­ГҐГ­ГЁГҐ ГЇГ°ГҐГґГЁГЄГ±Г  {" .. text_buffer7.v .."}'ГѓГ«Г ГўГ­Г»Г©-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°' {00BFFF}ГіГ±ГЇГҐГёГ­Г®!", -1)
 					end
 				end 
 				end
 				
-						if imgui.CollapsingHeader(u8"Просмотр всех значений") then
-			imgui.Text(u8"Хелпер - " .. mainIni.config.prefixhelper)
-			imgui.Text(u8"Мл.Администратор - " .. mainIni.config.prefixmladm)
-			imgui.Text(u8"Администратор - " .. mainIni.config.prefixadm)
-			imgui.Text(u8"Старший-Администратор - " .. mainIni.config.prefixstadm)
-			imgui.Text(u8"Помощник.Гл-Администратора - " .. mainIni.config.prefixpga)
-			imgui.Text(u8"Заместитель.Гл-Администратора - " .. mainIni.config.prefixzga)
-			imgui.Text(u8"Главный-Администратор - " .. mainIni.config.prefixga)
-    if imgui.Button(u8" Сбросить все значения ", imgui.ImVec2(160,25)) then
+						if imgui.CollapsingHeader(u8"ГЏГ°Г®Г±Г¬Г®ГІГ° ГўГ±ГҐГµ Г§Г­Г Г·ГҐГ­ГЁГ©") then
+			imgui.Text(u8"Г•ГҐГ«ГЇГҐГ° - " .. mainIni.config.prefixhelper)
+			imgui.Text(u8"ГЊГ«.ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° - " .. mainIni.config.prefixmladm)
+			imgui.Text(u8"ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° - " .. mainIni.config.prefixadm)
+			imgui.Text(u8"Г‘ГІГ Г°ГёГЁГ©-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° - " .. mainIni.config.prefixstadm)
+			imgui.Text(u8"ГЏГ®Г¬Г®Г№Г­ГЁГЄ.ГѓГ«-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г  - " .. mainIni.config.prefixpga)
+			imgui.Text(u8"Г‡Г Г¬ГҐГ±ГІГЁГІГҐГ«Гј.ГѓГ«-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г  - " .. mainIni.config.prefixzga)
+			imgui.Text(u8"ГѓГ«Г ГўГ­Г»Г©-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° - " .. mainIni.config.prefixga)
+    if imgui.Button(u8" Г‘ГЎГ°Г®Г±ГЁГІГј ГўГ±ГҐ Г§Г­Г Г·ГҐГ­ГЁГї ", imgui.ImVec2(160,25)) then
 		mainIni.config.prefixhelper = text_buffer.v
 			if inicfg.save(mainIni, directIni) then
-			sampAddChatMessage("Значение префикса 'Хелпер' {00BFFF}успешно сброшено!", -1)
+			sampAddChatMessage("Г‡Г­Г Г·ГҐГ­ГЁГҐ ГЇГ°ГҐГґГЁГЄГ±Г  'Г•ГҐГ«ГЇГҐГ°' {00BFFF}ГіГ±ГЇГҐГёГ­Г® Г±ГЎГ°Г®ГёГҐГ­Г®!", -1)
 				mainIni.config.prefixmladm = text_buffer2.v
 			if inicfg.save(mainIni, directIni) then
-			sampAddChatMessage("Значение префикса 'Мл.Администратор' {00BFFF}успешно сброшено!", -1)
+			sampAddChatMessage("Г‡Г­Г Г·ГҐГ­ГЁГҐ ГЇГ°ГҐГґГЁГЄГ±Г  'ГЊГ«.ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°' {00BFFF}ГіГ±ГЇГҐГёГ­Г® Г±ГЎГ°Г®ГёГҐГ­Г®!", -1)
 					mainIni.config.prefixadm = text_buffer3.v
 			if inicfg.save(mainIni, directIni) then
-			sampAddChatMessage("Значение префикса 'Администратор' {00BFFF}успешно сброшено!", -1)
+			sampAddChatMessage("Г‡Г­Г Г·ГҐГ­ГЁГҐ ГЇГ°ГҐГґГЁГЄГ±Г  'ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°' {00BFFF}ГіГ±ГЇГҐГёГ­Г® Г±ГЎГ°Г®ГёГҐГ­Г®!", -1)
 					mainIni.config.prefixstadm = text_buffer4.v
 			if inicfg.save(mainIni, directIni) then
-			sampAddChatMessage("Значение префикса 'Старший-Администратор' {00BFFF}успешно сброшено!", -1)
+			sampAddChatMessage("Г‡Г­Г Г·ГҐГ­ГЁГҐ ГЇГ°ГҐГґГЁГЄГ±Г  'Г‘ГІГ Г°ГёГЁГ©-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°' {00BFFF}ГіГ±ГЇГҐГёГ­Г® Г±ГЎГ°Г®ГёГҐГ­Г®!", -1)
 					mainIni.config.prefixpga = text_buffer5.v
 			if inicfg.save(mainIni, directIni) then
-			sampAddChatMessage("Значение префикса 'Помощник.Гл-Администратора' {00BFFF}успешно сброшено!", -1)
+			sampAddChatMessage("Г‡Г­Г Г·ГҐГ­ГЁГҐ ГЇГ°ГҐГґГЁГЄГ±Г  'ГЏГ®Г¬Г®Г№Г­ГЁГЄ.ГѓГ«-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г ' {00BFFF}ГіГ±ГЇГҐГёГ­Г® Г±ГЎГ°Г®ГёГҐГ­Г®!", -1)
 					mainIni.config.prefixzga = text_buffer6.v
 			if inicfg.save(mainIni, directIni) then
-			sampAddChatMessage("Значение префикса 'Заместитель.Гл-Администратора' {00BFFF}успешно сброшено!", -1)
+			sampAddChatMessage("Г‡Г­Г Г·ГҐГ­ГЁГҐ ГЇГ°ГҐГґГЁГЄГ±Г  'Г‡Г Г¬ГҐГ±ГІГЁГІГҐГ«Гј.ГѓГ«-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г ' {00BFFF}ГіГ±ГЇГҐГёГ­Г® Г±ГЎГ°Г®ГёГҐГ­Г®!", -1)
 					mainIni.config.prefixga = text_buffer7.v
 			if inicfg.save(mainIni, directIni) then
-			sampAddChatMessage("Значение префикса 'Главный-Администратор' {00BFFF}успешно сброшено!", -1)
-   sampAddChatMessage(tag .. " Все значения сброшены{00BFFF}! ")
+			sampAddChatMessage("Г‡Г­Г Г·ГҐГ­ГЁГҐ ГЇГ°ГҐГґГЁГЄГ±Г  'ГѓГ«Г ГўГ­Г»Г©-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°' {00BFFF}ГіГ±ГЇГҐГёГ­Г® Г±ГЎГ°Г®ГёГҐГ­Г®!", -1)
+   sampAddChatMessage(tag .. " Г‚Г±ГҐ Г§Г­Г Г·ГҐГ­ГЁГї Г±ГЎГ°Г®ГёГҐГ­Г»{00BFFF}! ")
 	end
 	 end
 	  end
@@ -183,15 +183,15 @@ if imgui.CollapsingHeader(u8"Главный-Администратор") then
 	       end
 	        end
 	imgui.Separator()
-	imgui.Text(u8"/prefixhelper - Хелпер")
-	imgui.Text(u8"/prefixmladm - Мл.Администратор")
-	imgui.Text(u8"/prefixadm - Администратор")
-	imgui.Text(u8"/prefixstadm - Старший-Администратор")
-	imgui.Text(u8"/prefixpga - Помощник.Гл-Администратора")
-	imgui.Text(u8"/prefixzga - Заместитель.Гл-Администратора")
-	imgui.Text(u8"/prefixga - Главный-Администратор")
+	imgui.Text(u8"/prefixhelper - Г•ГҐГ«ГЇГҐГ°")
+	imgui.Text(u8"/prefixmladm - ГЊГ«.ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°")
+	imgui.Text(u8"/prefixadm - ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°")
+	imgui.Text(u8"/prefixstadm - Г‘ГІГ Г°ГёГЁГ©-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°")
+	imgui.Text(u8"/prefixpga - ГЏГ®Г¬Г®Г№Г­ГЁГЄ.ГѓГ«-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г ")
+	imgui.Text(u8"/prefixzga - Г‡Г Г¬ГҐГ±ГІГЁГІГҐГ«Гј.ГѓГ«-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г ")
+	imgui.Text(u8"/prefixga - ГѓГ«Г ГўГ­Г»Г©-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°")
 	imgui.Separator()
-	imgui.TextColoredRGB(u8"Версия скрипта: {00BFFF}1.1 (alpha)")
+	imgui.TextColoredRGB(u8"Г‚ГҐГ°Г±ГЁГї Г±ГЄГ°ГЁГЇГІГ : {00BFFF}1.2 (alpha)")
 	imgui.End()
 	  end
 	  end
@@ -202,31 +202,31 @@ imgui.Process = prefixm.v
 end
 
 function cmd_prefixhelper(arg)
-  sampSendChat("/prefix " .. arg .. " Хелпер " .. mainIni.config.prefixhelper)
+  sampSendChat("/prefix " .. arg .. " Г•ГҐГ«ГЇГҐГ° " .. mainIni.config.prefixhelper)
 end
 
 function cmd_prefixmladm(arg)
-  sampSendChat("/prefix " .. arg .. " Мл.Администратор " .. mainIni.config.prefixmladm)
+  sampSendChat("/prefix " .. arg .. " ГЊГ«.ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° " .. mainIni.config.prefixmladm)
 end
 
 function cmd_prefixadm(arg)
-  sampSendChat("/prefix " .. arg .. " Администратор " .. mainIni.config.prefixadm)
+  sampSendChat("/prefix " .. arg .. " ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° " .. mainIni.config.prefixadm)
 end
 
 function cmd_prefixstadm(arg)
-  sampSendChat("/prefix " .. arg .. " Старший-Администратор " .. mainIni.config.prefixstadm)
+  sampSendChat("/prefix " .. arg .. " Г‘ГІГ Г°ГёГЁГ©-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° " .. mainIni.config.prefixstadm)
 end
 
 function cmd_prefixpga(arg)
-  sampSendChat("/prefix " .. arg .. " Помощник.Гл-Администратора " .. mainIni.config.prefixpga)
+  sampSendChat("/prefix " .. arg .. " ГЏГ®Г¬Г®Г№Г­ГЁГЄ.ГѓГ«-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г  " .. mainIni.config.prefixpga)
 end
 
 function cmd_prefixzga(arg)
-  sampSendChat("/prefix " .. arg .. " Заместитель.Гл-Администратора " .. mainIni.config.prefixzga)
+  sampSendChat("/prefix " .. arg .. " Г‡Г Г¬ГҐГ±ГІГЁГІГҐГ«Гј.ГѓГ«-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г  " .. mainIni.config.prefixzga)
 end
 
 function cmd_prefixga(arg)
-  sampSendChat("/prefix " .. arg .. " Главный-Администратор " .. mainIni.config.prefixga)
+  sampSendChat("/prefix " .. arg .. " ГѓГ«Г ГўГ­Г»Г©-ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° " .. mainIni.config.prefixga)
 end
 
 function imgui.CenterText(text)
@@ -307,21 +307,21 @@ function autoupdate(json_url, prefix, url)
               lua_thread.create(function(prefix)
                 local dlstatus = require('moonloader').download_status
                 local color = -1
-                sampAddChatMessage((prefix..'Обнаружено обновление. Пытаюсь обновиться c '..thisScript().version..' на '..updateversion), color)
+                sampAddChatMessage((prefix..'ГЋГЎГ­Г Г°ГіГ¦ГҐГ­Г® Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ. ГЏГ»ГІГ ГѕГ±Гј Г®ГЎГ­Г®ГўГЁГІГјГ±Гї c '..thisScript().version..' Г­Г  '..updateversion), color)
                 wait(250)
                 downloadUrlToFile(updatelink, thisScript().path,
                   function(id3, status1, p13, p23)
                     if status1 == dlstatus.STATUS_DOWNLOADINGDATA then
-                      print(string.format('Загружено %d из %d.', p13, p23))
+                      print(string.format('Г‡Г ГЈГ°ГіГ¦ГҐГ­Г® %d ГЁГ§ %d.', p13, p23))
                     elseif status1 == dlstatus.STATUS_ENDDOWNLOADDATA then
-                      print('Загрузка обновления завершена.')
-                      sampAddChatMessage((prefix..'Обновление завершено!'), color)
+                      print('Г‡Г ГЈГ°ГіГ§ГЄГ  Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГї Г§Г ГўГҐГ°ГёГҐГ­Г .')
+                      sampAddChatMessage((prefix..'ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ Г§Г ГўГҐГ°ГёГҐГ­Г®!'), color)
                       goupdatestatus = true
                       lua_thread.create(function() wait(500) thisScript():reload() end)
                     end
                     if status1 == dlstatus.STATUSEX_ENDDOWNLOAD then
                       if goupdatestatus == nil then
-                        sampAddChatMessage((prefix..'Обновление прошло неудачно. Запускаю устаревшую версию..'), color)
+                        sampAddChatMessage((prefix..'ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ ГЇГ°Г®ГёГ«Г® Г­ГҐГіГ¤Г Г·Г­Г®. Г‡Г ГЇГіГ±ГЄГ Гѕ ГіГ±ГІГ Г°ГҐГўГёГіГѕ ГўГҐГ°Г±ГЁГѕ..'), color)
                         update = false
                       end
                     end
@@ -331,11 +331,11 @@ function autoupdate(json_url, prefix, url)
               )
             else
               update = false
-              print('v'..thisScript().version..': Обновление не требуется.')
+              print('v'..thisScript().version..': ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ Г­ГҐ ГІГ°ГҐГЎГіГҐГІГ±Гї.')
             end
           end
         else
-          print('v'..thisScript().version..': Не могу проверить обновление. Смиритесь или проверьте самостоятельно на '..url)
+          print('v'..thisScript().version..': ГЌГҐ Г¬Г®ГЈГі ГЇГ°Г®ГўГҐГ°ГЁГІГј Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ. Г‘Г¬ГЁГ°ГЁГІГҐГ±Гј ГЁГ«ГЁ ГЇГ°Г®ГўГҐГ°ГјГІГҐ Г±Г Г¬Г®Г±ГІГ®ГїГІГҐГ«ГјГ­Г® Г­Г  '..url)
           update = false
         end
       end
