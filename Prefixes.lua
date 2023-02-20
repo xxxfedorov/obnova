@@ -216,7 +216,7 @@ if imgui.CollapsingHeader(u8"Ãëàâíûé-Àäìèíèñòðàòîð") then
 	imgui.Text(u8"/prefixzga - Çàìåñòèòåëü.Ãë-Àäìèíèñòðàòîðà")
 	imgui.Text(u8"/prefixga - Ãëàâíûé-Àäìèíèñòðàòîð")
 	imgui.Separator()
-	imgui.TextColoredRGB(u8"Âåðñèÿ ñêðèïòà: {00BFFF}1.1 (alpha)")
+	imgui.TextColoredRGB(u8"Âåðñèÿ ñêðèïòà: {00BFFF}1.2 (alpha)")
 	imgui.End()
 	  end
 	  end
